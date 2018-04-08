@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">基站助手</string>
+    <string name="permission_apply_introduce">获取基站信号和位置等信息需要用户授予相应权限，否则功能无法使用，点击确定开始授予权限</string>
+    <string name="permission_camera_introduce">应用需要相机权限进行相机预览、拍照，存储空间权限保存照片、读取照片，否则功能无法使用，点击确定开始授予权限</string>
+    <string name="titleMeasureTelephony">测量基站信息</string>
+    <string name="contentSwitchOff">关闭</string>
+    <string name="contentSwitchOn">开启</string>
+    <string name="titleMeasureCycle">基站信息查询周期</string>
+    <string name="titleUploadCycle">数据上传周期</string>
+    <string name="titleDataSaveTime">数据保存时间</string>
+    <string name="titleCellInfoDialog">详细信息</string>
+    <string name="dialogClose">关闭</string>
+    <string name="menu_camera">相册</string>
+    <string name="titleActivityAlbum">照片</string>
+    <string name="titleActivityCamera">拍照</string>
+    <string name="toast_picture_capture_success">图片保存成功</string>
+</resources>
