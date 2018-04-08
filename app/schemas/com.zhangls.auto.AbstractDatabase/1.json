@@ -1,0 +1,435 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "32d72a83a2adca6e4f9f3caca9ecc22c",
+    "entities": [
+      {
+        "tableName": "gsm",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`createTime` INTEGER NOT NULL, `uploaded` INTEGER NOT NULL, `gsmMnc` TEXT NOT NULL, `gsmCid` TEXT NOT NULL, `gsmLac` TEXT NOT NULL, `gsmRssi` TEXT NOT NULL, `gsmAsulevel` TEXT NOT NULL, `gsmArfcn` TEXT NOT NULL, `gsmBasic` TEXT NOT NULL, PRIMARY KEY(`createTime`))",
+        "fields": [
+          {
+            "fieldPath": "createTime",
+            "columnName": "createTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploaded",
+            "columnName": "uploaded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gsmMnc",
+            "columnName": "gsmMnc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gsmCid",
+            "columnName": "gsmCid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gsmLac",
+            "columnName": "gsmLac",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gsmRssi",
+            "columnName": "gsmRssi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gsmAsulevel",
+            "columnName": "gsmAsulevel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gsmArfcn",
+            "columnName": "gsmArfcn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gsmBasic",
+            "columnName": "gsmBasic",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "createTime"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "lte",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`createTime` INTEGER NOT NULL, `uploaded` INTEGER NOT NULL, `lteMnc` TEXT NOT NULL, `lteCi` TEXT NOT NULL, `ltePci` TEXT NOT NULL, `lteTac` TEXT NOT NULL, `lteAsulevel` TEXT NOT NULL, `lteRsrp` TEXT NOT NULL, `lteRsrq` TEXT NOT NULL, `lteEarfcn` TEXT NOT NULL, PRIMARY KEY(`createTime`))",
+        "fields": [
+          {
+            "fieldPath": "createTime",
+            "columnName": "createTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploaded",
+            "columnName": "uploaded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lteMnc",
+            "columnName": "lteMnc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lteCi",
+            "columnName": "lteCi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ltePci",
+            "columnName": "ltePci",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lteTac",
+            "columnName": "lteTac",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lteAsulevel",
+            "columnName": "lteAsulevel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lteRsrp",
+            "columnName": "lteRsrp",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lteRsrq",
+            "columnName": "lteRsrq",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lteEarfcn",
+            "columnName": "lteEarfcn",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "createTime"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cdma",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`createTime` INTEGER NOT NULL, `uploaded` INTEGER NOT NULL, `cdmaMnc` TEXT NOT NULL, `cdmaBasestationId` TEXT NOT NULL, `cdmaNetworkId` TEXT NOT NULL, `cdmaSystemId` TEXT NOT NULL, `cdmaRssi` TEXT NOT NULL, `cdmaEcio` TEXT NOT NULL, `cdmaEvdoDbm` TEXT NOT NULL, `cdmaEvdoEcio` TEXT NOT NULL, `cdmaAsulevel` TEXT NOT NULL, `cdmaLatitude` TEXT NOT NULL, `cdmaLongitude` TEXT NOT NULL, PRIMARY KEY(`createTime`))",
+        "fields": [
+          {
+            "fieldPath": "createTime",
+            "columnName": "createTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploaded",
+            "columnName": "uploaded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaMnc",
+            "columnName": "cdmaMnc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaBasestationId",
+            "columnName": "cdmaBasestationId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaNetworkId",
+            "columnName": "cdmaNetworkId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaSystemId",
+            "columnName": "cdmaSystemId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaRssi",
+            "columnName": "cdmaRssi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaEcio",
+            "columnName": "cdmaEcio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaEvdoDbm",
+            "columnName": "cdmaEvdoDbm",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaEvdoEcio",
+            "columnName": "cdmaEvdoEcio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaAsulevel",
+            "columnName": "cdmaAsulevel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaLatitude",
+            "columnName": "cdmaLatitude",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cdmaLongitude",
+            "columnName": "cdmaLongitude",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "createTime"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "wcdma",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`createTime` INTEGER NOT NULL, `uploaded` INTEGER NOT NULL, `wcdmaMnc` TEXT NOT NULL, `wcdmaCid` TEXT NOT NULL, `wcdmaPsc` TEXT NOT NULL, `wcdmaLac` TEXT NOT NULL, `wcdmaRssi` TEXT NOT NULL, `wcdmaAsulevel` TEXT NOT NULL, `wcdmaUarfcn` TEXT NOT NULL, PRIMARY KEY(`createTime`))",
+        "fields": [
+          {
+            "fieldPath": "createTime",
+            "columnName": "createTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploaded",
+            "columnName": "uploaded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wcdmaMnc",
+            "columnName": "wcdmaMnc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wcdmaCid",
+            "columnName": "wcdmaCid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wcdmaPsc",
+            "columnName": "wcdmaPsc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wcdmaLac",
+            "columnName": "wcdmaLac",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wcdmaRssi",
+            "columnName": "wcdmaRssi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wcdmaAsulevel",
+            "columnName": "wcdmaAsulevel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wcdmaUarfcn",
+            "columnName": "wcdmaUarfcn",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "createTime"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "config",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `measureCycle` INTEGER NOT NULL, `uploadCycle` INTEGER NOT NULL, `saveTime` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "measureCycle",
+            "columnName": "measureCycle",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploadCycle",
+            "columnName": "uploadCycle",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saveTime",
+            "columnName": "saveTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "location",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`createTime` INTEGER NOT NULL, `uploaded` INTEGER NOT NULL, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `accuracy` REAL NOT NULL, `altitude` REAL NOT NULL, PRIMARY KEY(`createTime`))",
+        "fields": [
+          {
+            "fieldPath": "createTime",
+            "columnName": "createTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploaded",
+            "columnName": "uploaded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accuracy",
+            "columnName": "accuracy",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "altitude",
+            "columnName": "altitude",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "createTime"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "picture",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`createTime` INTEGER NOT NULL, `uploaded` INTEGER NOT NULL, `path` TEXT NOT NULL, PRIMARY KEY(`createTime`))",
+        "fields": [
+          {
+            "fieldPath": "createTime",
+            "columnName": "createTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uploaded",
+            "columnName": "uploaded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "path",
+            "columnName": "path",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "createTime"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"32d72a83a2adca6e4f9f3caca9ecc22c\")"
+    ]
+  }
+}
