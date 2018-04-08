@@ -1,9 +1,12 @@
 package com.zhangls.auto
 
+import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
+import android.content.ContentValues
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import com.zhangls.auto.dao.*
 import com.zhangls.auto.model.*
 
@@ -80,6 +83,22 @@ abstract class AbstractDatabase : RoomDatabase() {
             if (mAppDatabase == null) {
                 mAppDatabase = Room
                         .databaseBuilder(context.applicationContext, AbstractDatabase::class.java, "BaseStation.db")
+                        .addCallback(object : RoomDatabase.Callback() {
+                            override fun onCreate(db: SupportSQLiteDatabase) {
+                                // 设置初始配置值
+                                val config = ContentValues()
+                                config.put("id", 1)
+                                config.put("measureCycle", 0)
+                                config.put("uploadCycle", 0)
+                                config.put("saveTime", 0)
+
+                                db.insert("config", SQLiteDatabase.CONFLICT_NONE, config)
+                            }
+
+                            override fun onOpen(db: SupportSQLiteDatabase) {
+
+                            }
+                        })
                         .build()
             }
             return mAppDatabase!!

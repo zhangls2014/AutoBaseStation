@@ -27,11 +27,11 @@ interface ConfigDao {
      * 查询配置
      */
     @Query("SELECT * FROM config WHERE id = 1 LIMIT 1")
-    fun getConfig(): ConfigModel?
+    fun getConfig(): ConfigModel
 
     /**
      * 查询配置
      */
     @Query("SELECT * FROM config WHERE id = 1 LIMIT 1")
-    fun getConfigLiveData(): LiveData<ConfigModel>?
+    fun getConfigLiveData(): LiveData<ConfigModel>
 }

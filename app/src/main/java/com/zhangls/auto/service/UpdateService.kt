@@ -83,11 +83,7 @@ class UpdateService : LifecycleService() {
         // 异步加载初始化数据库资源
         Observable.create<ConfigModel> {
             database = AbstractDatabase.get(this)
-            var configModel = database.configDao().getConfig()
-            if (configModel == null) {
-                configModel = ConfigModel(1, 0, 0, 0)
-                database.configDao().insertConfig(configModel)
-            }
+            val configModel = database.configDao().getConfig()
             this.configModel = configModel
             it.onNext(configModel)
         }
@@ -95,7 +91,7 @@ class UpdateService : LifecycleService() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     // 配置监听，配置变化时更新内存中的配置信息
-                    database.configDao().getConfigLiveData()?.observe(this, Observer {
+                    database.configDao().getConfigLiveData().observe(this, Observer {
                         if (it == null)
                             return@Observer
                         else {
