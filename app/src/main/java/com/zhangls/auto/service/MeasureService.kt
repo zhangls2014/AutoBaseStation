@@ -109,7 +109,7 @@ class MeasureService : LifecycleService() {
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
+                .subscribe { _ ->
                     // 配置监听，配置变化时更新内存中的配置信息
                     database.configDao().getConfigLiveData().observe(this, Observer {
                         if (it == null)
@@ -118,7 +118,7 @@ class MeasureService : LifecycleService() {
                             configModel = it
                         }
                     })
-                })
+                }
 
         mRunnable = Runnable {
             startMeasure()

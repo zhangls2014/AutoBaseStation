@@ -34,7 +34,7 @@ class CdmaViewBinder(manager: FragmentManager) : ItemViewBinder<CellInfoCdmaMode
             "20" -> "中国铁通"
             else -> "未知"
         }
-        holder.title.text = operator + "(CDMA)"
+        holder.title.text = "$operator(CDMA)"
 
         val status = if (cdma.uploaded) {
             holder.upload.setTextColor(ContextCompat.getColor(context, android.R.color.black))

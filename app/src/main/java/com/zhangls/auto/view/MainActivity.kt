@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
+                .subscribe { it ->
                     // 初始化配置的默认值
                     initConfig(it)
 
@@ -106,9 +106,9 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     // 点击设置监听
-                    llMeasureCycle.setOnClickListener({ measureClick(configModel.measureCycle) })
-                    llUploadCycle.setOnClickListener({ uploadClick(configModel.uploadCycle) })
-                    llSaveTime.setOnClickListener({ saveTimeClick(configModel.saveTime) })
+                    llMeasureCycle.setOnClickListener { measureClick(configModel.measureCycle) }
+                    llUploadCycle.setOnClickListener { uploadClick(configModel.uploadCycle) }
+                    llSaveTime.setOnClickListener { saveTimeClick(configModel.saveTime) }
 
                     // 配置监听，配置变化时更新内存中的配置信息
                     database.configDao().getConfigLiveData().observe(this, Observer {
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
 
                     // 启动数据更新服务
                     UpdateService.startService(this)
-                })
+                }
 
         // 初始化布局
         val sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
@@ -167,9 +167,9 @@ class MainActivity : AppCompatActivity() {
                 .setTitle(R.string.titleMeasureCycle)
                 .setSingleChoiceItems(
                         resources.getStringArray(R.array.measureCycle),
-                        index,
-                        { _, which -> checkedItem[0] = which })
-                .setPositiveButton(android.R.string.ok, { _, _ ->
+                        index
+                ) { _, which -> checkedItem[0] = which }
+                .setPositiveButton(android.R.string.ok) { _, _ ->
                     if (index == checkedItem[0])
                         return@setPositiveButton
                     else
@@ -181,7 +181,7 @@ class MainActivity : AppCompatActivity() {
                                             configModel.uploadCycle,
                                             configModel.saveTime))
                         }
-                })
+                }
                 .setNegativeButton(android.R.string.cancel, null)
                 .setCancelable(false)
                 .create()
@@ -197,9 +197,9 @@ class MainActivity : AppCompatActivity() {
                 .setTitle(R.string.titleUploadCycle)
                 .setSingleChoiceItems(
                         resources.getStringArray(R.array.uploadCycle),
-                        index,
-                        { _, which -> checkedItem[0] = which })
-                .setPositiveButton(android.R.string.ok, { _, _ ->
+                        index
+                ) { _, which -> checkedItem[0] = which }
+                .setPositiveButton(android.R.string.ok) { _, _ ->
                     if (index == checkedItem[0])
                         return@setPositiveButton
                     else
@@ -211,7 +211,7 @@ class MainActivity : AppCompatActivity() {
                                             checkedItem[0],
                                             configModel.saveTime))
                         }
-                })
+                }
                 .setNegativeButton(android.R.string.cancel, null)
                 .setCancelable(false)
                 .create()
@@ -227,9 +227,9 @@ class MainActivity : AppCompatActivity() {
                 .setTitle(R.string.titleDataSaveTime)
                 .setSingleChoiceItems(
                         resources.getStringArray(R.array.saveTime),
-                        index,
-                        { _, which -> checkedItem[0] = which })
-                .setPositiveButton(android.R.string.ok, { _, _ ->
+                        index
+                ) { _, which -> checkedItem[0] = which }
+                .setPositiveButton(android.R.string.ok) { _, _ ->
                     if (index == checkedItem[0])
                         return@setPositiveButton
                     else
@@ -241,7 +241,7 @@ class MainActivity : AppCompatActivity() {
                                             configModel.uploadCycle,
                                             checkedItem[0]))
                         }
-                })
+                }
                 .setNegativeButton(android.R.string.cancel, null)
                 .setCancelable(false)
                 .create()
@@ -262,10 +262,10 @@ class MainActivity : AppCompatActivity() {
                         Permission.ACCESS_FINE_LOCATION,
                         Permission.READ_EXTERNAL_STORAGE,
                         Permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted({
+                .onGranted {
                     if (isMeasure) MeasureService.startService(this)
-                })
-                .onDenied({ permissions ->
+                }
+                .onDenied { permissions ->
                     // 没有权限，无法测量
                     measureSwitch.isChecked = false
 
@@ -277,14 +277,14 @@ class MainActivity : AppCompatActivity() {
                         fragment.setNegativeListener { settingService.cancel() }
                         fragment.show(supportFragmentManager, null)
                     }
-                })
-                .rationale({ _, _, executor ->
+                }
+                .rationale { _, _, executor ->
                     // 弹出权限申请说明提示框
                     val fragment = CommonDialogFragment.newInstance(getString(R.string.permission_apply_introduce))
                     fragment.setPositiveListener { executor.execute() }
                     fragment.setNegativeListener { executor.cancel() }
                     fragment.show(supportFragmentManager, null)
-                })
+                }
                 .start()
     }
 

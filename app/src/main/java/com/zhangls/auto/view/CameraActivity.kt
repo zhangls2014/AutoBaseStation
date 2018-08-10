@@ -395,14 +395,14 @@ class CameraActivity : AppCompatActivity() {
                         Permission.CAMERA,
                         Permission.READ_EXTERNAL_STORAGE,
                         Permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted({
+                .onGranted {
                     if (textureView.isAvailable) {
                         openCamera(textureView.width, textureView.height)
                     } else {
                         textureView.surfaceTextureListener = surfaceTextureListener
                     }
-                })
-                .onDenied({ permissions ->
+                }
+                .onDenied { permissions ->
                     if (AndPermission.hasAlwaysDeniedPermission(this, permissions)) {
                         // 权限申请被拒绝时，检查，若勾选了始终拒绝权限授予，则弹出提示框
                         val settingService = AndPermission.permissionSetting(this)
@@ -411,14 +411,14 @@ class CameraActivity : AppCompatActivity() {
                         fragment.setNegativeListener { settingService.cancel() }
                         fragment.show(supportFragmentManager, null)
                     }
-                })
-                .rationale({ _, _, executor ->
+                }
+                .rationale { _, _, executor ->
                     // 弹出权限申请说明提示框
                     val fragment = CommonDialogFragment.newInstance(getString(R.string.permission_camera_introduce))
                     fragment.setPositiveListener { executor.execute() }
                     fragment.setNegativeListener { executor.cancel() }
                     fragment.show(supportFragmentManager, null)
-                })
+                }
                 .start()
     }
 

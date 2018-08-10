@@ -37,7 +37,7 @@ class LteViewBinder(manager: FragmentManager) : ItemViewBinder<CellInfoLteModel,
             "20" -> "中国铁通"
             else -> "未知"
         }
-        holder.title.text = operator + "(LTE)"
+        holder.title.text = "$operator(LTE)"
 
         val status = if (lte.uploaded) {
             holder.upload.setTextColor(ContextCompat.getColor(context, android.R.color.black))

@@ -71,7 +71,7 @@ class ItemFragment : Fragment() {
      * 刷新数据
      */
     private fun refreshData() {
-        Observable.create<Any> {
+        Observable.create<Any> { it ->
             database = AbstractDatabase.get(context)
             when {
                 arguments.getInt(TYPE_STRING) == ACTION_GSM -> {
@@ -143,8 +143,6 @@ class ItemFragment : Fragment() {
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    adapter.notifyDataSetChanged()
-                })
+                .subscribe { adapter.notifyDataSetChanged() }
     }
 }

@@ -37,7 +37,7 @@ class GsmViewBinder(manager: FragmentManager) : ItemViewBinder<CellInfoGsmModel,
             "20" -> "中国铁通"
             else -> "未知"
         }
-        holder.title.text = operator + "(GSM)"
+        holder.title.text = "$operator(GSM)"
 
         val status = if (gsm.uploaded) {
             holder.upload.setTextColor(ContextCompat.getColor(context, android.R.color.black))

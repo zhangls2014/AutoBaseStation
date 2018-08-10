@@ -21,7 +21,7 @@ import com.zhangls.auto.model.*
     CellInfoWcdmaModel::class,
     ConfigModel::class,
     LocationModel::class,
-    PictureModel::class], version = 1)
+    PictureModel::class], version = 1, exportSchema = false)
 abstract class AbstractDatabase : RoomDatabase() {
 
     /**

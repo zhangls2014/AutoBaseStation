@@ -36,8 +36,8 @@ class CommonDialogFragment : AppCompatDialogFragment() {
         return AlertDialog.Builder(activity)
                 .setMessage(message)
                 .setCancelable(false)
-                .setPositiveButton(android.R.string.ok, { _, _ -> onPositiveClick?.invoke() })
-                .setNegativeButton(android.R.string.cancel, { _, _ -> onNegativeClick?.invoke() })
+                .setPositiveButton(android.R.string.ok) { _, _ -> onPositiveClick?.invoke() }
+                .setNegativeButton(android.R.string.cancel) { _, _ -> onNegativeClick?.invoke() }
                 .create()
     }
 

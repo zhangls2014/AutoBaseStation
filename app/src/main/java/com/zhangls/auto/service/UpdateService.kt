@@ -89,7 +89,7 @@ class UpdateService : LifecycleService() {
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
+                .subscribe { it ->
                     // 配置监听，配置变化时更新内存中的配置信息
                     database.configDao().getConfigLiveData().observe(this, Observer {
                         if (it == null)
@@ -103,7 +103,7 @@ class UpdateService : LifecycleService() {
                     mHandler.sendEmptyMessageDelayed(MESSAGE_UPLOAD_DATA,
                             (initUploadConfig(configModel) * INTERVAL_UNIT))
                     mHandler.sendEmptyMessage(MESSAGE_DELETE_DATA)
-                })
+                }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

@@ -37,7 +37,7 @@ class WcdmaViewBinder(manager: FragmentManager) : ItemViewBinder<CellInfoWcdmaMo
             "20" -> "中国铁通"
             else -> "未知"
         }
-        holder.title.text = operator + "(WCDMA)"
+        holder.title.text = "$operator(WCDMA)"
 
         val status = if (wcdma.uploaded) {
             holder.upload.setTextColor(ContextCompat.getColor(context, android.R.color.black))
@@ -54,7 +54,7 @@ class WcdmaViewBinder(manager: FragmentManager) : ItemViewBinder<CellInfoWcdmaMo
 
         holder.time.text = format.format(date)
 
-        holder.container.setOnClickListener({
+        holder.container.setOnClickListener {
             val arrays = arrayOf(
                     operator,
                     status,
@@ -69,6 +69,6 @@ class WcdmaViewBinder(manager: FragmentManager) : ItemViewBinder<CellInfoWcdmaMo
             )
             CellInfoDialog.newInstance(CellInfoDialog.ACTION_WCDMA, arrays)
                     .show(fragmentManager, null)
-        })
+        }
     }
 }

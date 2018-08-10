@@ -1,6 +1,7 @@
 package com.zhangls.auto.view
 
 import android.app.Activity
+import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -87,10 +88,8 @@ class AlbumActivity : AppCompatActivity() {
                 .permission(
                         Permission.READ_EXTERNAL_STORAGE,
                         Permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted({
-                    refreshData()
-                })
-                .onDenied({ permissions ->
+                .onGranted { refreshData() }
+                .onDenied { permissions ->
                     if (AndPermission.hasAlwaysDeniedPermission(this, permissions)) {
                         // 权限申请被拒绝时，检查，若勾选了始终拒绝权限授予，则弹出提示框
                         val settingService = AndPermission.permissionSetting(this)
@@ -99,14 +98,14 @@ class AlbumActivity : AppCompatActivity() {
                         fragment.setNegativeListener { settingService.cancel() }
                         fragment.show(supportFragmentManager, null)
                     }
-                })
-                .rationale({ _, _, executor ->
+                }
+                .rationale { _, _, executor ->
                     // 弹出权限申请说明提示框
                     val fragment = CommonDialogFragment.newInstance(getString(R.string.permission_camera_introduce))
                     fragment.setPositiveListener { executor.execute() }
                     fragment.setNegativeListener { executor.cancel() }
                     fragment.show(supportFragmentManager, null)
-                })
+                }
                 .start()
     }
 
@@ -114,13 +113,13 @@ class AlbumActivity : AppCompatActivity() {
      * 刷新数据
      */
     private fun refreshData() {
-        Observable.create<Any> {
+        Observable.create<Any> { it ->
             if (database == null) database = AbstractDatabase.get(this)
 
             items.addAll(database!!.pictureDao().getAllPicture())
 
             // 观察数据，每次数据变化时刷新列表数据
-            database!!.pictureDao().getAllPictureData().observe(this, android.arch.lifecycle.Observer {
+            database!!.pictureDao().getAllPictureData().observe(this, Observer {
                 items.clear()
                 adapter.notifyDataSetChanged()
                 if (it != null) {
@@ -131,8 +130,6 @@ class AlbumActivity : AppCompatActivity() {
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    adapter.notifyDataSetChanged()
-                })
+                .subscribe { adapter.notifyDataSetChanged() }
     }
 }
